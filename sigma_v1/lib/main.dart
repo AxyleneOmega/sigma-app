@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
             child: Center(
                 child: Container(
       child: const Text(
-        "Initial Text",
+        "Initial Text okay ",
         textDirection: TextDirection.ltr,
       ),
       color: const Color(0xFFFEFEFE),
