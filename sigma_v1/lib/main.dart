@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => MaterialApp(
         title: title,
         theme: ThemeData(
+          fontFamily: 'Montserrat',
           primarySwatch: MaterialColor(0xFF817DEA, sigma_purple),
           backgroundColor: MaterialColor(0x243242, sigma_night),
         ),
@@ -76,21 +77,18 @@ class _MainPageState extends State<MainPage> {
           index: index,
           onChangedTab: onChangedTab,
         ),
-        floatingActionButton: ElevatedButton(
-          onPressed: () {},
-          child: IconButton(
-            icon: Image.asset(
-              'assets/sigma_logo.png',
-              scale: 1.0,
-            ),
-            onPressed: () {},
-          ),
-          style: ButtonStyle(
-              shape: MaterialStateProperty.all(CircleBorder()),
-              backgroundColor:
-                  MaterialStateProperty.all(Colors.black54) // <-- Button color
-              ),
-        ),
+        floatingActionButton: MaterialButton(
+            onPressed: () {
+              print('Tapped');
+            },
+            padding: EdgeInsets.all(8.0),
+            textColor: Colors.white,
+            splashColor: Colors.greenAccent,
+            elevation: 8.0,
+            child: CircleAvatar(
+              radius: 36.0,
+              backgroundImage: AssetImage('assets/sl_night_bg.jpg'),
+            )),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       );
 

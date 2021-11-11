@@ -5,7 +5,7 @@ class RewardsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text('Rewards'),
+          title: Center(child: Text('Rewards')),
         ),
         body: Text("Rewards Page"),
         backgroundColor: MaterialColor(0x243242, sigma_night),

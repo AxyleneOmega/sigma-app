@@ -1,3 +1,4 @@
+import 'package:sigma_v1/main.dart';
 import 'package:flutter/material.dart';
 
 class TabBarMaterialWidget extends StatefulWidget {
@@ -22,31 +23,60 @@ class _TabBarMaterialWidgetState extends State<TabBarMaterialWidget> {
       child: IconButton(icon: Icon(Icons.no_cell), onPressed: null),
     );
 
-    return BottomAppBar(
-      shape: CircularNotchedRectangle(),
-      color: Color(0xFF817DEA),
-      notchMargin: 8,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          buildTabItem(
-            index: 0,
-            icon: Icon(Icons.star_sharp),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: MaterialColor(0x243242, sigma_night).withOpacity(0.5),
           ),
-          buildTabItem(
-            index: 1,
-            icon: Icon(Icons.add_task_sharp),
-          ),
-          placeholder,
-          buildTabItem(
-            index: 2,
-            icon: Icon(Icons.calendar_today_sharp),
-          ),
-          buildTabItem(
-            index: 3,
-            icon: Icon(Icons.account_circle_sharp),
+          BoxShadow(
+            color: MaterialColor(0xFF817DEA, sigma_purple),
+            spreadRadius: -12.0,
+            blurRadius: 12.0,
           ),
         ],
+      ),
+      child: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        color: Color(0xFF817DEA),
+        notchMargin: -8,
+        child: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: buildTabItem(
+                  index: 0,
+                  icon: Icon(Icons.star_sharp),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: buildTabItem(
+                  index: 1,
+                  icon: Icon(Icons.add_task_sharp),
+                ),
+              ),
+              placeholder,
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: buildTabItem(
+                  index: 2,
+                  icon: Icon(Icons.calendar_today_sharp),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: buildTabItem(
+                  index: 3,
+                  icon: Icon(Icons.account_circle_sharp),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
