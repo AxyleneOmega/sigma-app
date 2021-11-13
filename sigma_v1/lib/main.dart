@@ -78,9 +78,11 @@ class _MainPageState extends State<MainPage> {
           onChangedTab: onChangedTab,
         ),
         floatingActionButton: MaterialButton(
-            onPressed: () {
-              print('Tapped');
-            },
+            onPressed: () => {
+                  setState(() {
+                    this.index = 4;
+                  })
+                },
             padding: EdgeInsets.all(8.0),
             textColor: Colors.white,
             splashColor: Colors.greenAccent,

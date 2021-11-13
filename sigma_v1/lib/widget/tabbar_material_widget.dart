@@ -48,29 +48,29 @@ class _TabBarMaterialWidgetState extends State<TabBarMaterialWidget> {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: buildTabItem(
-                  index: 0,
+                  index: 3,
                   icon: Icon(Icons.star_sharp),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: buildTabItem(
-                  index: 1,
-                  icon: Icon(Icons.add_task_sharp),
+                  index: 2,
+                  icon: Icon(Icons.adjust_sharp),
                 ),
               ),
               placeholder,
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: buildTabItem(
-                  index: 2,
-                  icon: Icon(Icons.calendar_today_sharp),
+                  index: 1,
+                  icon: Icon(Icons.calendar_today_outlined),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: buildTabItem(
-                  index: 3,
+                  index: 0,
                   icon: Icon(Icons.account_circle_sharp),
                 ),
               ),
