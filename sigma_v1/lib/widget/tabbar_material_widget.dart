@@ -18,7 +18,7 @@ class TabBarMaterialWidget extends StatefulWidget {
 class _TabBarMaterialWidgetState extends State<TabBarMaterialWidget> {
   @override
   Widget build(BuildContext context) {
-    final placeholder = Opacity(
+    const placeholder = Opacity(
       opacity: 0,
       child: IconButton(icon: Icon(Icons.no_cell), onPressed: null),
     );
@@ -28,54 +28,52 @@ class _TabBarMaterialWidgetState extends State<TabBarMaterialWidget> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: MaterialColor(0x243242, sigma_night).withOpacity(0.5),
+            color: MaterialColor(0x243242, sigmaNight).withOpacity(0.5),
           ),
           BoxShadow(
-            color: MaterialColor(0xFF817DEA, sigma_purple),
+            color: MaterialColor(0xFF817DEA, sigmaPurple),
             spreadRadius: -12.0,
             blurRadius: 12.0,
           ),
         ],
       ),
       child: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        color: Color(0xFF817DEA),
+        shape: const CircularNotchedRectangle(),
+        color: const Color(0xFF817DEA),
         notchMargin: -8,
-        child: Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: buildTabItem(
-                  index: 3,
-                  icon: Icon(Icons.star_sharp),
-                ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: buildTabItem(
+                index: 3,
+                icon: const Icon(Icons.star_sharp),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: buildTabItem(
-                  index: 2,
-                  icon: Icon(Icons.adjust_sharp),
-                ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: buildTabItem(
+                index: 2,
+                icon: const Icon(Icons.adjust_sharp),
               ),
-              placeholder,
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: buildTabItem(
-                  index: 1,
-                  icon: Icon(Icons.calendar_today_outlined),
-                ),
+            ),
+            placeholder,
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: buildTabItem(
+                index: 1,
+                icon: const Icon(Icons.calendar_today_outlined),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: buildTabItem(
-                  index: 0,
-                  icon: Icon(Icons.account_circle_sharp),
-                ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: buildTabItem(
+                index: 0,
+                icon: const Icon(Icons.account_circle_sharp),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
