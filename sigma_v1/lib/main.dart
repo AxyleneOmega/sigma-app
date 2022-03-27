@@ -84,15 +84,16 @@ class _MainPageState extends State<MainPage> {
                     index = 4;
                   })
                 },
-            padding: const EdgeInsets.all(8.0),
-            textColor: Colors.white,
-            splashColor: Colors.greenAccent,
-            elevation: 8.0,
+            padding: const EdgeInsets.all(-20),
+            textColor: const Color.fromRGBO(10, 20, 30, 1),
+            splashColor: const Color.fromRGBO(10, 20, 30, 0),
+            elevation: 0.0,
             child: const CircleAvatar(
-              radius: 36.0,
+              radius: 44.0,
               backgroundImage: AssetImage('assets/sl_night_bg.jpg'),
             )),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButtonLocation:
+            FloatingActionButtonLocation.miniCenterDocked,
       );
 
   void onChangedTab(int index) {

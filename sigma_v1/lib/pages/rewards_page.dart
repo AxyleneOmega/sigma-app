@@ -1,61 +1,97 @@
-import 'package:flutter/cupertino.dart';
 import 'package:sigma_v1/main.dart';
 import 'package:flutter/material.dart';
 
 class RewardsPage extends StatelessWidget {
   const RewardsPage({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: CustomScrollView(
-          slivers: <Widget>[
-            SliverAppBar(
-              pinned: true,
-              expandedHeight: 200.0,
-              stretch: true,
-              floating: true,
-              onStretchTrigger: () async {
-                //'Load new data!'
-                // await Server.requestNewData();
-              },
-              backgroundColor: const Color.fromRGBO(129, 125, 234, 1),
-              flexibleSpace: const FlexibleSpaceBar(
-                stretchModes: <StretchMode>[
-                  StretchMode.zoomBackground,
-                  StretchMode.fadeTitle,
-                  StretchMode.blurBackground,
-                ],
-                title: Text(
-                  'Games as Rewards!',
-                  style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 20,
-                  ),
-                ),
-                background: DecoratedBox(
-                  position: DecorationPosition.foreground,
-                  child: FittedBox(
-                    child: Image(
-                      image: AssetImage('assets/sl_night_bg.jpg'),
+  Widget build(BuildContext context) => Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [
+              Color.fromRGBO(10, 20, 30, 1),
+              Color.fromRGBO(36, 50, 66, 1),
+              Color.fromRGBO(10, 20, 30, 1)
+            ])),
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          body: CustomScrollView(
+            slivers: <Widget>[
+              SliverAppBar(
+                pinned: true,
+                expandedHeight: MediaQuery.of(context).size.height * 0.1851,
+                stretch: true,
+                floating: true,
+                onStretchTrigger: () async {
+                  //'Load new data!'
+                  // await Server.requestNewData();
+                },
+                backgroundColor: const Color.fromRGBO(129, 125, 234, 1),
+                flexibleSpace: const FlexibleSpaceBar(
+                  stretchModes: <StretchMode>[
+                    StretchMode.zoomBackground,
+                    StretchMode.fadeTitle,
+                    StretchMode.blurBackground,
+                  ],
+                  title: Text(
+                    'Games as Rewards!',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontSize: 20,
                     ),
-                    fit: BoxFit.cover,
                   ),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.center,
-                      colors: <Color>[
-                        Color.fromRGBO(129, 125, 234, 1),
-                        Colors.transparent
-                      ],
+                  background: DecoratedBox(
+                    position: DecorationPosition.foreground,
+                    child: FittedBox(
+                      child: Image(
+                        image: AssetImage('assets/sl_night_bg.jpg'),
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.center,
+                        colors: <Color>[
+                          Color.fromRGBO(129, 125, 234, 1),
+                          Colors.transparent
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            const GameList(),
-          ],
+              const GameList(),
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Container(
+                  margin: const EdgeInsets.fromLTRB(8, 8, 8, 20),
+                  height: MediaQuery.of(context).size.height * 0.1851,
+                  decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [
+                      Color.fromRGBO(10, 20, 30, 1),
+                      Color.fromRGBO(36, 50, 66, 1),
+                      Color.fromRGBO(10, 20, 30, 1)
+                    ],
+                  )),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Icon(
+                      Icons.sentiment_very_satisfied,
+                      size: 90,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          backgroundColor: MaterialColor(0x243242, sigmaNight),
         ),
-        backgroundColor: MaterialColor(0x243242, sigmaNight),
       );
 }
 
@@ -76,52 +112,58 @@ class GameList extends StatelessWidget {
             color: gameCard.bg,
             child: Row(
               children: <Widget>[
-                SizedBox(
-                  height: 200.0,
-                  width: 200.0,
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: <Widget>[
-                      DecoratedBox(
-                          position: DecorationPosition.foreground,
-                          decoration: const BoxDecoration(),
-                          child: ClipRRect(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(40)),
-                            child: Image.network(
-                              gameCard.imageId,
-                              fit: BoxFit.cover,
-                            ),
-                          )),
-                    ],
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.1851,
+                    width: MediaQuery.of(context).size.height * 0.1851,
+                    child: Stack(
+                      fit: StackFit.loose,
+                      children: <Widget>[
+                        DecoratedBox(
+                            position: DecorationPosition.foreground,
+                            decoration: const BoxDecoration(),
+                            child: ClipRRect(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(30)),
+                              child: Image.network(
+                                gameCard.imageId,
+                                fit: BoxFit.cover,
+                              ),
+                            )),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
-                  flex: 2,
+                  flex: 1,
                   child: Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
                           gameCard.getCard(),
                           style: textTheme.headline4,
-                          overflow: TextOverflow.ellipsis,
-                          softWrap: false,
-                        ),
-                        const SizedBox(height: 10.0),
-                        Text(
-                          gameCard.description,
+                          //overflow: TextOverflow.fade,
                           softWrap: true,
                         ),
+                        const FittedBox(fit: BoxFit.contain),
+                        Text(gameCard.description,
+                            style: const TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontSize: 10,
+                            ),
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis),
                       ],
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.fromLTRB(8, 8, 10, 8),
                   child: Text(
-                    '${gameCard.title} | ${gameCard.minCost} Points',
+                    '${gameCard.minCost} Points',
                     style: textTheme.subtitle1,
                   ),
                 ),
