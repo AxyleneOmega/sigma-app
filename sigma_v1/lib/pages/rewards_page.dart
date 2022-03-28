@@ -66,8 +66,8 @@ class RewardsPage extends StatelessWidget {
               SliverFillRemaining(
                 hasScrollBody: false,
                 child: Container(
-                  margin: const EdgeInsets.fromLTRB(8, 8, 8, 20),
-                  height: MediaQuery.of(context).size.height * 0.1851,
+                  margin: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  height: MediaQuery.of(context).size.height * 1.5 * 0.1851,
                   decoration: const BoxDecoration(
                       gradient: LinearGradient(
                     begin: Alignment.centerLeft,
@@ -79,7 +79,7 @@ class RewardsPage extends StatelessWidget {
                     ],
                   )),
                   child: const Padding(
-                    padding: EdgeInsets.all(8),
+                    padding: EdgeInsets.fromLTRB(8, 0, 8, 100),
                     child: Icon(
                       Icons.sentiment_very_satisfied,
                       size: 90,
@@ -152,7 +152,7 @@ class GameList extends StatelessWidget {
                         Text(gameCard.description,
                             style: const TextStyle(
                               fontFamily: 'Montserrat',
-                              fontSize: 10,
+                              fontSize: 15,
                             ),
                             softWrap: true,
                             overflow: TextOverflow.ellipsis),

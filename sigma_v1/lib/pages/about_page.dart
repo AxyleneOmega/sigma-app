@@ -5,6 +5,7 @@ class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) => Container(
+        width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.centerLeft,
@@ -31,21 +32,41 @@ class AboutPage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Padding(
+                  children: const [
+                    Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text("Welcome to SIGMA",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontFamily: 'Montserrat',
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Color(0xFFFFFFFF),
                             fontWeight: FontWeight.w900,
                           )),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: RichText(
+                      padding: EdgeInsets.all(20.0),
+                      child: Text(
+                        '''This app is a productivity tracker, daily task scheduler, and also a place to unwind and have fun, all in one package.
+
+How to use this app:
+📊Use PLAYER section to track your progress in various categories & optional tags
+🗓Schedule & plan your day using the SCHEDULE section, complete with a calendar & daily routine list
+🎯Add, modify & complete your goals, tasks & routines in the GOALS sections
+🎮Use point accumulated in your profile to play mini-games in the REWARDS section.
+
+All the best on your way to become the best you! 
+Thank you using our app. 
+Best wishes, 
+The SIGMA team 💖''',
+                        style: TextStyle(
+                          fontStyle: FontStyle.normal,
+                          fontFamily: 'Montserrat',
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                        textAlign: TextAlign.justify,
+                      ), /*RichText(
                         textAlign: TextAlign.justify,
                         text: const TextSpan(
                           style: TextStyle(
@@ -65,10 +86,10 @@ class AboutPage extends StatelessWidget {
                                 text: 'to unwind and have fun, all in one '),
                             TextSpan(text: 'package. '),
                             TextSpan(text: ''),
-                            TextSpan(text: 'How to use this app: '),
+                            TextSpan(text: 'How to use this app: 
                           ],
                         ),
-                      ),
+                      ),*/
                     ),
                   ],
                 ),
