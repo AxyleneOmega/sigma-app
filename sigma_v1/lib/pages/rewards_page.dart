@@ -16,79 +16,85 @@ class RewardsPage extends StatelessWidget {
             ])),
         child: Scaffold(
           resizeToAvoidBottomInset: false,
-          body: CustomScrollView(
-            slivers: <Widget>[
-              SliverAppBar(
-                pinned: true,
-                expandedHeight: MediaQuery.of(context).size.height * 0.1851,
-                stretch: true,
-                floating: true,
-                onStretchTrigger: () async {
-                  //'Load new data!'
-                  // await Server.requestNewData();
-                },
-                backgroundColor: const Color.fromRGBO(129, 125, 234, 1),
-                flexibleSpace: const FlexibleSpaceBar(
-                  stretchModes: <StretchMode>[
-                    StretchMode.zoomBackground,
-                    StretchMode.fadeTitle,
-                    StretchMode.blurBackground,
-                  ],
-                  title: Text(
-                    'Games as Rewards!',
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontSize: 20,
-                    ),
-                  ),
-                  background: DecoratedBox(
-                    position: DecorationPosition.foreground,
-                    child: FittedBox(
-                      child: Image(
-                        image: AssetImage('assets/sl_night_bg.jpg'),
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.center,
-                        colors: <Color>[
-                          Color.fromRGBO(129, 125, 234, 1),
-                          Colors.transparent
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              const GameList(),
-              SliverFillRemaining(
-                hasScrollBody: false,
-                child: Container(
-                  margin: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  height: MediaQuery.of(context).size.height * 1.5 * 0.1851,
-                  decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    colors: [
-                      Color.fromRGBO(10, 20, 30, 1),
-                      Color.fromRGBO(36, 50, 66, 1),
-                      Color.fromRGBO(10, 20, 30, 1)
+          body: RawScrollbar(
+            thumbColor: const Color.fromRGBO(129, 125, 234, 1),
+            thickness: 8,
+            radius: const Radius.circular(1),
+            minThumbLength: 10.0,
+            child: CustomScrollView(
+              slivers: <Widget>[
+                SliverAppBar(
+                  pinned: true,
+                  expandedHeight: MediaQuery.of(context).size.height * 0.1851,
+                  stretch: true,
+                  floating: true,
+                  onStretchTrigger: () async {
+                    //'Load new data!'
+                    // await Server.requestNewData();
+                  },
+                  backgroundColor: const Color.fromRGBO(129, 125, 234, 1),
+                  flexibleSpace: const FlexibleSpaceBar(
+                    stretchModes: <StretchMode>[
+                      StretchMode.zoomBackground,
+                      StretchMode.fadeTitle,
+                      StretchMode.blurBackground,
                     ],
-                  )),
-                  child: const Padding(
-                    padding: EdgeInsets.fromLTRB(8, 0, 8, 100),
-                    child: Icon(
-                      Icons.sentiment_very_satisfied,
-                      size: 90,
-                      color: Colors.white,
+                    title: Text(
+                      'Games as Rewards!',
+                      style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontSize: 20,
+                      ),
+                    ),
+                    background: DecoratedBox(
+                      position: DecorationPosition.foreground,
+                      child: FittedBox(
+                        child: Image(
+                          image: AssetImage('assets/sl_night_bg.jpg'),
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.center,
+                          colors: <Color>[
+                            Color.fromRGBO(129, 125, 234, 1),
+                            Colors.transparent
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+                const GameList(),
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Container(
+                    margin: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                    height: MediaQuery.of(context).size.height * 1.5 * 0.1851,
+                    decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      colors: [
+                        Color.fromRGBO(10, 20, 30, 1),
+                        Color.fromRGBO(36, 50, 66, 1),
+                        Color.fromRGBO(10, 20, 30, 1)
+                      ],
+                    )),
+                    child: const Padding(
+                      padding: EdgeInsets.fromLTRB(8, 0, 8, 100),
+                      child: Icon(
+                        Icons.sentiment_very_satisfied,
+                        size: 90,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           backgroundColor: MaterialColor(0x243242, sigmaNight),
         ),
