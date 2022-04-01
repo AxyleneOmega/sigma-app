@@ -1,8 +1,23 @@
+import 'dart:html';
+
 import 'package:sigma_v1/main.dart';
 import 'package:flutter/material.dart';
+import 'package:table_calendar/table_calendar.dart';
 
-class SchedulePage extends StatelessWidget {
+class SchedulePage extends StatefulWidget {
   const SchedulePage({Key? key}) : super(key: key);
+  @override
+  _SchedulePageState createState() => _SchedulePageState();
+}
+
+class _SchedulePageState extends State<SchedulePage> {
+  CalendarController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = CalendarController();
+  }
+
   @override
   Widget build(BuildContext context) => Container(
         decoration: const BoxDecoration(
