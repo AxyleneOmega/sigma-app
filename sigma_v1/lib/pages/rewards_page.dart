@@ -247,7 +247,7 @@ class GameCard {
 
   static const List<String> _games = <String>[
     'Block Pong',
-    'Terrain Runner',
+    'Tribal Survivor',
     'Space Shooter',
     'Target Hunter',
   ];

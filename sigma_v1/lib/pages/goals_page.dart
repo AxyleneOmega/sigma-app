@@ -1,25 +1,39 @@
 import 'package:sigma_v1/main.dart';
 import 'package:flutter/material.dart';
 
-class GoalsPage extends StatelessWidget {
-  const GoalsPage({Key? key}) : super(key: key);
+class GoalsPage extends StatefulWidget {
+  GoalsPage({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) => Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: [
-              Color.fromRGBO(10, 20, 30, 1),
-              Color.fromRGBO(36, 50, 66, 1),
-              Color.fromRGBO(10, 20, 30, 1)
-            ])),
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Center(child: Text('Goals')),
-          ),
-          body: const Text("Goals Page"),
-          backgroundColor: MaterialColor(0x243242, sigmaNight),
-        ),
-      );
+  _GoalsPageState createState() => _GoalsPageState();
+}
+
+class _GoalsPageState extends State<GoalsPage> {
+  final pageController = PageController(initialPage: 1);
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Center(child: Text('Goals')),
+      ),
+      body: PageView(
+        onPageChanged: (index) {
+          setState(() {});
+        },
+        physics: const AlwaysScrollableScrollPhysics(),
+        children: [
+          Container(color: Colors.indigo),
+          Container(color: Colors.red),
+          Container(color: Colors.brown),
+        ],
+      ),
+      backgroundColor: MaterialColor(0x243242, sigmaNight),
+    );
+  }
 }
