@@ -134,7 +134,7 @@ class GameList extends StatelessWidget {
                                   const BorderRadius.all(Radius.circular(30)),
                               child: Image.network(
                                 gameCard.imageId,
-                                fit: BoxFit.cover,
+                                fit: BoxFit.fitHeight,
                               ),
                             )),
                       ],
@@ -189,7 +189,7 @@ class GameList extends StatelessWidget {
 const Map<int, GameCard> _kDummyData = {
   0: GameCard(
     id: 0,
-    imageId: ('assets/sl_night_bg.jpg'),
+    imageId: ('assets/gameLogos/blockPongLogo.png'),
     title: "Block Pong",
     minCost: 10,
     description: 'Classic game of Pong!',
@@ -197,8 +197,8 @@ const Map<int, GameCard> _kDummyData = {
   ),
   1: GameCard(
     id: 1,
-    imageId: ('assets/sl_night_bg.jpg'),
-    title: "Terrain Runner",
+    imageId: ('assets/gameLogos/tribalLogo.png'),
+    title: "Tribal Survivor",
     minCost: 15,
     description: 'Classic lane runner, with a twist.',
     bg: Color.fromRGBO(252, 221, 236, 1),

@@ -40,31 +40,56 @@ class _SchedulePageState extends State<SchedulePage> {
             ),
           ),
           body: SafeArea(
-            child: Calendar(
-              bottomBarArrowColor: Colors.white,
-              bottomBarColor: const Color.fromRGBO(36, 50, 66, 1),
-              startOnMonday: true,
-              weekDays: const ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-              events: _events,
-              isExpandable: true,
-              eventDoneColor: Colors.green,
-              selectedColor: Colors.pink,
-              todayColor: Colors.blue,
-              eventColor: Colors.grey,
-              locale: 'en_IN',
-              todayButtonText: 'Today',
-              bottomBarTextStyle: const TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w800,
-                  fontSize: 11),
-              isExpanded: true,
-              expandableDateFormat: 'EEEE, dd. MMMM yyyy',
-              dayOfWeekStyle: const TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w800,
-                  fontSize: 11),
+            child: Center(
+              child: Expanded(
+                flex: 1,
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.8,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  margin: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Color.fromARGB(255, 181, 178, 255),
+                    border: Border.all(
+                      color: const Color.fromRGBO(129, 125, 234, 1),
+                      width: 3.5,
+                    ),
+                  ),
+                  child: Calendar(
+                    startOnMonday: true,
+                    weekDays: const [
+                      'Mon',
+                      'Tue',
+                      'Wed',
+                      'Thu',
+                      'Fri',
+                      'Sat',
+                      'Sun'
+                    ],
+                    events: _events,
+                    isExpandable: true,
+                    eventDoneColor: Colors.green,
+                    selectedColor: Colors.pink,
+                    todayColor: Colors.blue,
+                    eventColor: Color.fromARGB(255, 255, 255, 255),
+                    locale: 'en_IN',
+                    todayButtonText: 'Jump to Today',
+                    bottomBarColor: const Color.fromRGBO(129, 125, 234, 1),
+                    bottomBarTextStyle: const TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w800,
+                        fontSize: 15),
+                    isExpanded: true,
+                    expandableDateFormat: 'EEEE, dd. MMMM yyyy',
+                    dayOfWeekStyle: const TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w800,
+                        fontSize: 11),
+                  ),
+                ),
+              ),
             ),
           ),
           backgroundColor: MaterialColor(0x243242, sigmaNight),
@@ -72,12 +97,12 @@ class _SchedulePageState extends State<SchedulePage> {
       );
   final Map<DateTime, List<CleanCalendarEvent>> _events = {
     DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day): [
-      CleanCalendarEvent('Event A',
+      CleanCalendarEvent('Review 2',
           startTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day, 10, 0),
+              DateTime.now().day, 19, 0),
           endTime: DateTime(DateTime.now().year, DateTime.now().month,
-              DateTime.now().day, 12, 0),
-          description: 'A special event',
+              DateTime.now().day, 20, 0),
+          description: 'All the best!',
           color: const Color.fromARGB(255, 0, 128, 255)),
     ],
     DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 2):

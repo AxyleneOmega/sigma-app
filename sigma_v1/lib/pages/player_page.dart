@@ -66,7 +66,7 @@ class _PlayerPageState extends State<PlayerPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      height: MediaQuery.of(context).size.height * 0.5,
+                      height: MediaQuery.of(context).size.height * 0.51,
                       width: MediaQuery.of(context).size.width * 0.9,
                       margin: const EdgeInsets.all(25),
                       decoration: BoxDecoration(
@@ -172,7 +172,7 @@ class _PlayerPageState extends State<PlayerPage> {
                               ),
                             ),
                             Container(
-                              height: MediaQuery.of(context).size.height * 0.33,
+                              height: MediaQuery.of(context).size.height * 0.34,
                               width: MediaQuery.of(context).size.width * 0.9,
                               margin: const EdgeInsets.fromLTRB(8, 4, 8, 0),
                               decoration: BoxDecoration(
@@ -184,33 +184,54 @@ class _PlayerPageState extends State<PlayerPage> {
                                   width: 3.5,
                                 ),
                               ),
-                              child: Column(
-                                children: <Widget>[
-                                  Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.05,
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.8,
-                                    margin:
-                                        const EdgeInsets.fromLTRB(8, 4, 8, 0),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color:
-                                          const Color.fromRGBO(10, 20, 30, 1),
-                                      border: Border.all(
-                                        color: const Color.fromRGBO(
-                                            129, 125, 234, .1),
-                                        width: 3.5,
-                                      ),
+                              child: Expanded(
+                                flex: 1,
+                                child: Column(
+                                  children: const <Widget>[
+                                    PlayerAttribute(
+                                      attributeName: 'Health',
+                                      currentLevel: 10,
+                                      percentCompletion: 40,
+                                      attributeColor:
+                                          Color.fromRGBO(80, 185, 128, 1),
                                     ),
-                                    child: Row(),
-                                  ),
-                                  Container(),
-                                  Container(),
-                                  Container(),
-                                  Container(),
-                                  Container(),
-                                ],
+                                    PlayerAttribute(
+                                      attributeName: 'Strength',
+                                      currentLevel: 11,
+                                      percentCompletion: 60,
+                                      attributeColor:
+                                          Color.fromRGBO(255, 152, 78, 1),
+                                    ),
+                                    PlayerAttribute(
+                                      attributeName: 'Creativity',
+                                      currentLevel: 3,
+                                      percentCompletion: 50,
+                                      attributeColor:
+                                          Color.fromRGBO(241, 120, 182, 1),
+                                    ),
+                                    PlayerAttribute(
+                                      attributeName: 'Intellect',
+                                      currentLevel: 9,
+                                      percentCompletion: 80,
+                                      attributeColor:
+                                          Color.fromRGBO(120, 120, 241, 1),
+                                    ),
+                                    PlayerAttribute(
+                                      attributeName: 'Altruism',
+                                      currentLevel: 7,
+                                      percentCompletion: 20,
+                                      attributeColor:
+                                          Color.fromRGBO(255, 255, 255, 1),
+                                    ),
+                                    PlayerAttribute(
+                                      attributeName: 'Exploration',
+                                      currentLevel: 5,
+                                      percentCompletion: 65,
+                                      attributeColor:
+                                          Color.fromRGBO(255, 228, 133, 1),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -259,4 +280,106 @@ class _PlayerPageState extends State<PlayerPage> {
           backgroundColor: MaterialColor(0x243242, sigmaNight),
         ),
       );
+}
+
+class PlayerAttribute extends StatelessWidget {
+  const PlayerAttribute({
+    Key? key,
+    this.attributeColor = Colors.white,
+    this.attributeName = "Null",
+    this.percentCompletion = 50.0,
+    this.currentLevel = 1,
+  }) : super(key: key);
+
+  final String attributeName;
+  final Color attributeColor;
+  final double percentCompletion;
+  final int currentLevel;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.048,
+      width: MediaQuery.of(context).size.width * 0.8,
+      margin: const EdgeInsets.fromLTRB(8, 4, 8, 0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: const Color.fromRGBO(10, 20, 30, 1),
+        border: Border.all(
+          color: const Color.fromRGBO(129, 125, 234, .1),
+          width: 3.5,
+        ),
+      ),
+      child: FittedBox(
+        fit: BoxFit.fitWidth,
+        child: Row(
+          children: <Widget>[
+            Container(
+              alignment: Alignment.centerLeft,
+              margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              height: MediaQuery.of(context).size.height * 0.045,
+              width: MediaQuery.of(context).size.width * 0.25,
+              child: Text(
+                attributeName,
+                textAlign: TextAlign.justify,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              height: MediaQuery.of(context).size.height * 0.045,
+              width: MediaQuery.of(context).size.width * 0.6,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: const Color.fromRGBO(10, 20, 30, 1),
+                // border: Border.all(
+                //   color: const Color.fromRGBO(129, 125, 234, .1),
+                //   width: 0,
+                // ),
+              ),
+              child: FittedBox(
+                fit: BoxFit.fitWidth,
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
+                        color: attributeColor,
+                        // border: Border.all(
+                        //   color: const Color.fromRGBO(129, 125, 234, .1),
+                        //   width: 0,
+                        // ),
+                      ),
+                      height: MediaQuery.of(context).size.height * 0.075,
+                      width: MediaQuery.of(context).size.width *
+                          percentCompletion *
+                          0.01,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.075,
+                      width: MediaQuery.of(context).size.width *
+                          (1 - (percentCompletion * 0.01)),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.centerRight,
+              margin: const EdgeInsets.fromLTRB(3, 0, 10, 0),
+              height: MediaQuery.of(context).size.height * 0.045,
+              width: MediaQuery.of(context).size.width * 0.15,
+              child: Text(
+                "LVL " + currentLevel.toString(),
+                style: const TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.w800),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
