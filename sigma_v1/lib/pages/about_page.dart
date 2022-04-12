@@ -62,7 +62,7 @@ How to use this app:
 🎮  Use point accumulated in your profile to play mini-games in the REWARDS section.
 
 All the best on your way to become the best you! 
-Thank you using our app. 
+Thank you for using our app.
 Best wishes, 
 The SIGMA team 💖''',
                           ),

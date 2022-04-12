@@ -2,7 +2,7 @@ import 'package:sigma_v1/main.dart';
 import 'package:flutter/material.dart';
 
 class GoalsPage extends StatefulWidget {
-  GoalsPage({Key? key}) : super(key: key);
+  const GoalsPage({Key? key}) : super(key: key);
   @override
   _GoalsPageState createState() => _GoalsPageState();
 }

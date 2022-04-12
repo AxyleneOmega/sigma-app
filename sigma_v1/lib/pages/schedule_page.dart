@@ -49,7 +49,7 @@ class _SchedulePageState extends State<SchedulePage> {
                   margin: const EdgeInsets.fromLTRB(8, 8, 8, 0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Color.fromARGB(255, 181, 178, 255),
+                    color: const Color.fromARGB(255, 181, 178, 255),
                     border: Border.all(
                       color: const Color.fromRGBO(129, 125, 234, 1),
                       width: 3.5,
@@ -71,7 +71,7 @@ class _SchedulePageState extends State<SchedulePage> {
                     eventDoneColor: Colors.green,
                     selectedColor: Colors.pink,
                     todayColor: Colors.blue,
-                    eventColor: Color.fromARGB(255, 255, 255, 255),
+                    eventColor: const Color.fromARGB(255, 255, 255, 255),
                     locale: 'en_IN',
                     todayButtonText: 'Jump to Today',
                     bottomBarColor: const Color.fromRGBO(129, 125, 234, 1),

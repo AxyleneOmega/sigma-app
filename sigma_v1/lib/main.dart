@@ -66,7 +66,7 @@ class _MainPageState extends State<MainPage> {
   final pages = <Widget>[
     const PlayerPage(),
     const SchedulePage(),
-    GoalsPage(),
+    const GoalsPage(),
     const RewardsPage(),
     const AboutPage(),
   ];
