@@ -147,7 +147,7 @@ class GameList extends StatelessWidget {
                 Flexible(
                   flex: 3,
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 8, 0, 8),
+                    padding: const EdgeInsets.fromLTRB(10, 8, 8, 8),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -167,7 +167,7 @@ class GameList extends StatelessWidget {
                             overflow: TextOverflow.visible),
                         Text(
                           '${gameCard.minCost} Points',
-                          style: textTheme.subtitle1,
+                          style: textTheme.titleSmall,
                         ),
                       ],
                     ),

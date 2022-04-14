@@ -114,7 +114,7 @@ class _PlayerPageState extends State<PlayerPage> {
                                     child: Center(
                                       child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                              MainAxisAlignment.spaceEvenly,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: <Widget>[
@@ -188,7 +188,7 @@ class _PlayerPageState extends State<PlayerPage> {
                                 PlayerAttribute(
                                   attributeName: 'Creativity',
                                   currentLevel: 3,
-                                  percentCompletion: 50,
+                                  percentCompletion: 100,
                                   attributeColor:
                                       Color.fromRGBO(241, 120, 182, 1),
                                 ),
@@ -296,7 +296,7 @@ class PlayerAttribute extends StatelessWidget {
           children: <Widget>[
             Container(
               alignment: Alignment.centerLeft,
-              margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              margin: const EdgeInsets.fromLTRB(10, 0, 5, 0),
               height: MediaQuery.of(context).size.height * 0.045,
               width: MediaQuery.of(context).size.width * 0.25,
               child: Text(
@@ -310,37 +310,32 @@ class PlayerAttribute extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.045,
-              width: MediaQuery.of(context).size.width * 0.6,
+              height: MediaQuery.of(context).size.height * 0.020,
+              width: MediaQuery.of(context).size.width * 0.65,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: const Color.fromRGBO(10, 20, 30, 1),
-                // border: Border.all(
-                //   color: const Color.fromRGBO(129, 125, 234, .1),
-                //   width: 0,
-                // ),
               ),
-              child: FittedBox(
-                fit: BoxFit.fitWidth,
+              child: Expanded(
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(40),
                         color: attributeColor,
-                        // border: Border.all(
-                        //   color: const Color.fromRGBO(129, 125, 234, .1),
-                        //   width: 0,
-                        // ),
                       ),
                       height: MediaQuery.of(context).size.height * 0.075,
                       width: MediaQuery.of(context).size.width *
+                          0.60 *
                           percentCompletion *
                           0.01,
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.075,
                       width: MediaQuery.of(context).size.width *
+                          0.60 *
                           (1 - (percentCompletion * 0.01)),
                     ),
                   ],
@@ -351,7 +346,7 @@ class PlayerAttribute extends StatelessWidget {
               alignment: Alignment.centerRight,
               margin: const EdgeInsets.fromLTRB(3, 0, 10, 0),
               height: MediaQuery.of(context).size.height * 0.045,
-              width: MediaQuery.of(context).size.width * 0.15,
+              width: MediaQuery.of(context).size.width * 0.13,
               child: Text(
                 "LVL " + currentLevel.toString(),
                 style: const TextStyle(
@@ -362,5 +357,28 @@ class PlayerAttribute extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class Player {
+  Player({Key? key, required this.username, required this.points});
+  final String username;
+  int points;
+
+  var attributes = List.generate(6, (i) => List.filled(2, 0, growable: false),
+      growable: false);
+
+  void setAttribute(int attrNum, int points) {
+    int level = points ~/ 100;
+    int percent = points % 100;
+    attributes[attrNum][0] = level;
+    attributes[attrNum][1] = percent;
+  }
+
+  void increaseAttribute(int attrNum, int points) {
+    int level = points ~/ 100;
+    int percent = points % 100;
+    attributes[attrNum][0] += level;
+    attributes[attrNum][1] += percent;
   }
 }
