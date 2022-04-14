@@ -64,10 +64,18 @@ flutter {
 }
 
 buildscript {
-    ext.kotlin_version = '1.6.20' //use latest
+    repositories {
+        google()
+        jcenter()
+        ext.kotlin_version = '1.6.20' //use latest
+    }
+    
+    dependencies{
+        classpath 'com.android.tools.build:gradle:3.5.0' // Use this version
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
 }
 
 dependencies {
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

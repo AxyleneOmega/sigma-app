@@ -62,7 +62,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int index = 0;
+  int index = 4;
   final pages = <Widget>[
     const PlayerPage(),
     const SchedulePage(),

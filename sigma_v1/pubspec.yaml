@@ -63,6 +63,8 @@ flutter:
   assets:
    - assets/sigma_logo.png
    - assets/sl_night_bg.jpg
+   - assets/gameLogos/blockPongLogo.png
+   - assets/gameLogos/tribalLogo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

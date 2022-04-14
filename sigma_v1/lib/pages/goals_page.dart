@@ -10,11 +10,11 @@ class GoalsPage extends StatefulWidget {
 class _GoalsPageState extends State<GoalsPage> {
   final pageController = PageController(initialPage: 1);
 
-  @override
-  void dispose() {
-    pageController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   pageController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {

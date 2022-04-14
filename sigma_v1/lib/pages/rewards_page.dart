@@ -118,33 +118,36 @@ class GameList extends StatelessWidget {
             color: gameCard.bg,
             child: Row(
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.1851,
-                    width: MediaQuery.of(context).size.height * 0.1851,
-                    child: Stack(
-                      fit: StackFit.loose,
-                      children: <Widget>[
-                        DecoratedBox(
-                            position: DecorationPosition.foreground,
-                            decoration: const BoxDecoration(),
-                            child: ClipRRect(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(30)),
-                              child: Image.network(
-                                gameCard.imageId,
-                                fit: BoxFit.fitHeight,
-                              ),
-                            )),
-                      ],
+                Flexible(
+                  flex: 2,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.1851,
+                      width: MediaQuery.of(context).size.height * 0.1851,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          DecoratedBox(
+                              position: DecorationPosition.foreground,
+                              decoration: const BoxDecoration(),
+                              child: ClipRRect(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(30)),
+                                child: Image.asset(
+                                  gameCard.imageId,
+                                  fit: BoxFit.fitHeight,
+                                ),
+                              )),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                Expanded(
-                  flex: 1,
+                Flexible(
+                  flex: 3,
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
+                    padding: const EdgeInsets.fromLTRB(10, 8, 0, 8),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -154,23 +157,20 @@ class GameList extends StatelessWidget {
                           //overflow: TextOverflow.fade,
                           softWrap: true,
                         ),
-                        const FittedBox(fit: BoxFit.contain),
+                        const FittedBox(fit: BoxFit.cover),
                         Text(gameCard.description,
                             style: const TextStyle(
                               fontFamily: 'Montserrat',
                               fontSize: 15,
                             ),
                             softWrap: true,
-                            overflow: TextOverflow.ellipsis),
+                            overflow: TextOverflow.visible),
+                        Text(
+                          '${gameCard.minCost} Points',
+                          style: textTheme.subtitle1,
+                        ),
                       ],
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 8, 10, 8),
-                  child: Text(
-                    '${gameCard.minCost} Points',
-                    style: textTheme.subtitle1,
                   ),
                 ),
               ],

@@ -1,7 +1,6 @@
 import 'package:sigma_v1/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_calendar/flutter_clean_calendar.dart';
-import 'package:flutter_clean_calendar/clean_calendar_event.dart';
 
 class SchedulePage extends StatefulWidget {
   const SchedulePage({Key? key}) : super(key: key);
@@ -41,53 +40,50 @@ class _SchedulePageState extends State<SchedulePage> {
           ),
           body: SafeArea(
             child: Center(
-              child: Expanded(
-                flex: 1,
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.8,
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  margin: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: const Color.fromARGB(255, 181, 178, 255),
-                    border: Border.all(
-                      color: const Color.fromRGBO(129, 125, 234, 1),
-                      width: 3.5,
-                    ),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.8,
+                width: MediaQuery.of(context).size.width * 0.9,
+                margin: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: const Color.fromARGB(255, 181, 178, 255),
+                  border: Border.all(
+                    color: const Color.fromRGBO(129, 125, 234, 1),
+                    width: 3.5,
                   ),
-                  child: Calendar(
-                    startOnMonday: true,
-                    weekDays: const [
-                      'Mon',
-                      'Tue',
-                      'Wed',
-                      'Thu',
-                      'Fri',
-                      'Sat',
-                      'Sun'
-                    ],
-                    events: _events,
-                    isExpandable: true,
-                    eventDoneColor: Colors.green,
-                    selectedColor: Colors.pink,
-                    todayColor: Colors.blue,
-                    eventColor: const Color.fromARGB(255, 255, 255, 255),
-                    locale: 'en_IN',
-                    todayButtonText: 'Jump to Today',
-                    bottomBarColor: const Color.fromRGBO(129, 125, 234, 1),
-                    bottomBarTextStyle: const TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w800,
-                        fontSize: 15),
-                    isExpanded: true,
-                    expandableDateFormat: 'EEEE, dd. MMMM yyyy',
-                    dayOfWeekStyle: const TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w800,
-                        fontSize: 11),
-                  ),
+                ),
+                child: Calendar(
+                  startOnMonday: true,
+                  weekDays: const [
+                    'Mon',
+                    'Tue',
+                    'Wed',
+                    'Thu',
+                    'Fri',
+                    'Sat',
+                    'Sun'
+                  ],
+                  events: _events,
+                  isExpandable: true,
+                  eventDoneColor: Colors.green,
+                  selectedColor: Colors.pink,
+                  todayColor: Colors.blue,
+                  eventColor: const Color.fromARGB(255, 255, 255, 255),
+                  locale: 'en_IN',
+                  todayButtonText: 'Jump to Today',
+                  bottomBarColor: const Color.fromRGBO(129, 125, 234, 1),
+                  bottomBarTextStyle: const TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w800,
+                      fontSize: 15),
+                  isExpanded: true,
+                  expandableDateFormat: 'EEEE, dd. MMMM yyyy',
+                  dayOfWeekStyle: const TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w800,
+                      fontSize: 11),
                 ),
               ),
             ),

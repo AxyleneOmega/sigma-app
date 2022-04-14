@@ -30,7 +30,7 @@ class _PlayerPageState extends State<PlayerPage> {
   }
 
   String _formatDateTime(DateTime dateTime) {
-    return DateFormat('EEEEE - dd, MMMM, yyyy hh:mm:ss').format(dateTime);
+    return DateFormat('EEEEE dd, MMMM, yyyy hh:mm:ss').format(dateTime);
   }
 
   @override
@@ -77,26 +77,25 @@ class _PlayerPageState extends State<PlayerPage> {
                           width: 3.5,
                         ),
                       ),
-                      child: Expanded(
-                        flex: 1,
-                        child: Column(
-                          children: <Widget>[
-                            Container(
-                              height: MediaQuery.of(context).size.height * 0.13,
-                              width: MediaQuery.of(context).size.width * 0.9,
-                              margin: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: const Color.fromRGBO(10, 20, 30, 1),
-                                border: Border.all(
-                                  color:
-                                      const Color.fromRGBO(129, 125, 234, .1),
-                                  width: 3.5,
-                                ),
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            height: MediaQuery.of(context).size.height * 0.13,
+                            width: MediaQuery.of(context).size.width * 0.9,
+                            margin: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: const Color.fromRGBO(10, 20, 30, 1),
+                              border: Border.all(
+                                color: const Color.fromRGBO(129, 125, 234, .1),
+                                width: 3.5,
                               ),
-                              child: Row(
-                                children: <Widget>[
-                                  Container(
+                            ),
+                            child: Row(
+                              children: <Widget>[
+                                Flexible(
+                                  flex: 2,
+                                  child: Container(
                                       //Player Avatar
                                       margin: const EdgeInsets.all(0),
                                       child: const CircleAvatar(
@@ -104,138 +103,120 @@ class _PlayerPageState extends State<PlayerPage> {
                                         backgroundImage: AssetImage(
                                             'assets/sl_night_bg.jpg'),
                                       )),
-                                  Expanded(
-                                    flex: 1,
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.5,
-                                      margin: const EdgeInsets.fromLTRB(
-                                          10, 8, 10, 8),
-                                      child: Center(
-                                        child: Expanded(
-                                          flex: 1,
-                                          child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: <Widget>[
-                                                const Expanded(
-                                                  flex: 1,
-                                                  child: Text(
-                                                    "Username",
-                                                    textAlign: TextAlign.left,
-                                                    style: TextStyle(
-                                                      fontStyle:
-                                                          FontStyle.normal,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontFamily: 'Montserrat',
-                                                      color: Colors.white,
-                                                      fontSize: 20,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text(
-                                                    "Today : " + _dateTimeNow,
-                                                    textAlign: TextAlign.center,
-                                                    style: const TextStyle(
-                                                      fontStyle:
-                                                          FontStyle.italic,
-                                                      fontWeight:
-                                                          FontWeight.w300,
-                                                      fontFamily: 'Montserrat',
-                                                      color: Colors.white,
-                                                      fontSize: 15,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ]),
-                                        ),
-                                      ),
+                                ),
+                                Flexible(
+                                  flex: 4,
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.5,
+                                    margin:
+                                        const EdgeInsets.fromLTRB(10, 8, 10, 8),
+                                    child: Center(
+                                      child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: <Widget>[
+                                            const Text(
+                                              "Username",
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                fontStyle: FontStyle.normal,
+                                                fontWeight: FontWeight.w500,
+                                                fontFamily: 'Montserrat',
+                                                color: Colors.white,
+                                                fontSize: 20,
+                                              ),
+                                            ),
+                                            Text(
+                                              "Today : " + _dateTimeNow,
+                                              textAlign: TextAlign.center,
+                                              style: const TextStyle(
+                                                fontStyle: FontStyle.italic,
+                                                fontWeight: FontWeight.w500,
+                                                fontFamily: 'Montserrat',
+                                                color: Colors.white,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ]),
                                     ),
                                   ),
-                                  Container(
+                                ),
+                                Flexible(
+                                  flex: 1,
+                                  child: Container(
                                     margin: const EdgeInsets.all(8),
-                                    child: const Expanded(
-                                      flex: 1,
-                                      child: Icon(Icons.settings_outlined,
-                                          size: 40.0,
-                                          color: Color.fromARGB(
-                                              204, 255, 255, 255)),
-                                    ),
+                                    child: const Icon(Icons.settings_outlined,
+                                        size: 30.0,
+                                        color:
+                                            Color.fromARGB(204, 255, 255, 255)),
                                   ),
-                                ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: MediaQuery.of(context).size.height * 0.34,
+                            width: MediaQuery.of(context).size.width * 0.9,
+                            margin: const EdgeInsets.fromLTRB(8, 4, 8, 0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: const Color.fromRGBO(10, 20, 30, 1),
+                              border: Border.all(
+                                color: const Color.fromRGBO(129, 125, 234, .1),
+                                width: 3.5,
                               ),
                             ),
-                            Container(
-                              height: MediaQuery.of(context).size.height * 0.34,
-                              width: MediaQuery.of(context).size.width * 0.9,
-                              margin: const EdgeInsets.fromLTRB(8, 4, 8, 0),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: const Color.fromRGBO(10, 20, 30, 1),
-                                border: Border.all(
-                                  color:
-                                      const Color.fromRGBO(129, 125, 234, .1),
-                                  width: 3.5,
+                            child: Column(
+                              children: const <Widget>[
+                                PlayerAttribute(
+                                  attributeName: 'Health',
+                                  currentLevel: 10,
+                                  percentCompletion: 40,
+                                  attributeColor:
+                                      Color.fromRGBO(80, 185, 128, 1),
                                 ),
-                              ),
-                              child: Expanded(
-                                flex: 1,
-                                child: Column(
-                                  children: const <Widget>[
-                                    PlayerAttribute(
-                                      attributeName: 'Health',
-                                      currentLevel: 10,
-                                      percentCompletion: 40,
-                                      attributeColor:
-                                          Color.fromRGBO(80, 185, 128, 1),
-                                    ),
-                                    PlayerAttribute(
-                                      attributeName: 'Strength',
-                                      currentLevel: 11,
-                                      percentCompletion: 60,
-                                      attributeColor:
-                                          Color.fromRGBO(255, 152, 78, 1),
-                                    ),
-                                    PlayerAttribute(
-                                      attributeName: 'Creativity',
-                                      currentLevel: 3,
-                                      percentCompletion: 50,
-                                      attributeColor:
-                                          Color.fromRGBO(241, 120, 182, 1),
-                                    ),
-                                    PlayerAttribute(
-                                      attributeName: 'Intellect',
-                                      currentLevel: 9,
-                                      percentCompletion: 80,
-                                      attributeColor:
-                                          Color.fromRGBO(120, 120, 241, 1),
-                                    ),
-                                    PlayerAttribute(
-                                      attributeName: 'Altruism',
-                                      currentLevel: 7,
-                                      percentCompletion: 20,
-                                      attributeColor:
-                                          Color.fromRGBO(255, 255, 255, 1),
-                                    ),
-                                    PlayerAttribute(
-                                      attributeName: 'Exploration',
-                                      currentLevel: 5,
-                                      percentCompletion: 65,
-                                      attributeColor:
-                                          Color.fromRGBO(255, 228, 133, 1),
-                                    ),
-                                  ],
+                                PlayerAttribute(
+                                  attributeName: 'Strength',
+                                  currentLevel: 11,
+                                  percentCompletion: 60,
+                                  attributeColor:
+                                      Color.fromRGBO(255, 152, 78, 1),
                                 ),
-                              ),
+                                PlayerAttribute(
+                                  attributeName: 'Creativity',
+                                  currentLevel: 3,
+                                  percentCompletion: 50,
+                                  attributeColor:
+                                      Color.fromRGBO(241, 120, 182, 1),
+                                ),
+                                PlayerAttribute(
+                                  attributeName: 'Intellect',
+                                  currentLevel: 9,
+                                  percentCompletion: 80,
+                                  attributeColor:
+                                      Color.fromRGBO(120, 120, 241, 1),
+                                ),
+                                PlayerAttribute(
+                                  attributeName: 'Altruism',
+                                  currentLevel: 7,
+                                  percentCompletion: 20,
+                                  attributeColor:
+                                      Color.fromRGBO(255, 255, 255, 1),
+                                ),
+                                PlayerAttribute(
+                                  attributeName: 'Exploration',
+                                  currentLevel: 5,
+                                  percentCompletion: 65,
+                                  attributeColor:
+                                      Color.fromRGBO(255, 228, 133, 1),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                     Container(
@@ -320,11 +301,11 @@ class PlayerAttribute extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.25,
               child: Text(
                 attributeName,
-                textAlign: TextAlign.justify,
+                textAlign: TextAlign.left,
                 style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w500),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700),
               ),
             ),
             Container(
@@ -374,7 +355,7 @@ class PlayerAttribute extends StatelessWidget {
               child: Text(
                 "LVL " + currentLevel.toString(),
                 style: const TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.w800),
+                    color: Colors.white, fontWeight: FontWeight.w900),
               ),
             ),
           ],
