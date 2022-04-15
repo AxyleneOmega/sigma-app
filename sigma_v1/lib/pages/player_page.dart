@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:sigma_v1/main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:sigma_v1/pages/goalsSubPages/tasks_page.dart';
+import 'package:sigma_v1/pages/goalsSubPages/routines_page.dart';
+import 'package:sigma_v1/pages/goalsSubPages/objectives_page.dart';
 
 class PlayerPage extends StatefulWidget {
   const PlayerPage({Key? key}) : super(key: key);
@@ -367,6 +370,8 @@ class Player {
 
   var attributes = List.generate(6, (i) => List.filled(2, 0, growable: false),
       growable: false);
+
+  String getUsername() => username;
 
   void setAttribute(int attrNum, int points) {
     int level = points ~/ 100;

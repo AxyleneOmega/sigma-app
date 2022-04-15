@@ -27,8 +27,9 @@ class AboutPage extends StatelessWidget {
             //decoration: BoxDecoration(),
             child: RawScrollbar(
               thumbColor: const Color.fromRGBO(129, 125, 234, 1),
-              thickness: 10,
-              radius: const Radius.elliptical(4, 10),
+              thickness: 8,
+              radius: const Radius.circular(1),
+              minThumbLength: 10.0,
               child: SingleChildScrollView(
                 child: Center(
                   child: Padding(
@@ -132,7 +133,7 @@ class AboutPage extends StatelessWidget {
                           child: Text.rich(
                             TextSpan(
                               text:
-                                  '🎮  Use point accumulated in your profile to play mini-games in the REWARDS section.',
+                                  '🎮  Use points accumulated in your profile to play mini-games in the REWARDS section.',
                             ),
                             style: TextStyle(
                               fontStyle: FontStyle.normal,

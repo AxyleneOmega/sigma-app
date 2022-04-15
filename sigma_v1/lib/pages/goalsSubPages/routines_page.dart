@@ -66,6 +66,7 @@ class _RoutinesPage extends State<RoutinesPage> {
             Expanded(
               flex: 9,
               child: Container(
+                width: MediaQuery.of(context).size.width,
                 margin: const EdgeInsets.all(10),
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
