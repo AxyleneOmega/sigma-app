@@ -1,7 +1,7 @@
-import 'package:sigma_v1/widget/tabbar_material_widget.dart';
+import 'package:sigma_v1/navbar/tabbar_material_widget.dart';
 import 'package:sigma_v1/pages/about_page.dart';
 import 'package:sigma_v1/pages/goals_page.dart';
-import 'package:sigma_v1/pages/player_page.dart';
+import 'package:sigma_v1/pages/playerPages/player_page.dart';
 import 'package:sigma_v1/pages/rewards_page.dart';
 import 'package:sigma_v1/pages/schedule_page.dart';
 import 'package:flutter/material.dart';
@@ -84,10 +84,10 @@ class _MainPageState extends State<MainPage> {
                     index = 4;
                   })
                 },
-            padding: const EdgeInsets.all(-20),
+            padding: const EdgeInsets.all(8),
             textColor: const Color.fromRGBO(10, 20, 30, 1),
             splashColor: const Color.fromRGBO(10, 20, 30, 0),
-            elevation: 0.0,
+            elevation: 8.0,
             child: const CircleAvatar(
               radius: 44.0,
               backgroundImage: AssetImage('assets/sl_night_bg.jpg'),

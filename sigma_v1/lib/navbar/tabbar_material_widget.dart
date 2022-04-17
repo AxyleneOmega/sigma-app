@@ -25,7 +25,7 @@ class _TabBarMaterialWidgetState extends State<TabBarMaterialWidget> {
 
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: const Color.fromRGBO(36, 50, 66, 0),
         boxShadow: [
           BoxShadow(
             color: MaterialColor(0x243242, sigmaNight).withOpacity(0.5),

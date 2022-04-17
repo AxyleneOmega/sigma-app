@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:sigma_v1/main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:sigma_v1/pages/playerPages/player_settings.dart';
 import 'package:sigma_v1/pages/goalsSubPages/tasks_page.dart';
 import 'package:sigma_v1/pages/goalsSubPages/routines_page.dart';
 import 'package:sigma_v1/pages/goalsSubPages/objectives_page.dart';
@@ -151,10 +152,70 @@ class _PlayerPageState extends State<PlayerPage> {
                                   flex: 1,
                                   child: Container(
                                     margin: const EdgeInsets.all(8),
-                                    child: const Icon(Icons.settings_outlined,
-                                        size: 30.0,
-                                        color:
-                                            Color.fromARGB(204, 255, 255, 255)),
+                                    child: IconButton(
+                                      icon: const Icon(Icons.settings_outlined,
+                                          size: 30.0,
+                                          color: Color.fromARGB(
+                                              204, 255, 255, 255)),
+                                      onPressed: () async {
+                                        var navigationResult =
+                                            await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (content) =>
+                                                        const PlayerSettings()));
+                                        if (navigationResult == 'from_back') {
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) =>
+                                                  const AlertDialog(
+                                                      title: Text(
+                                                          'BRO BACK WORKS, HYPE!'),
+                                                      titleTextStyle: TextStyle(
+                                                        fontStyle:
+                                                            FontStyle.normal,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        color: Colors.white,
+                                                        fontSize: 15,
+                                                      ),
+                                                      backgroundColor:
+                                                          Color.fromRGBO(
+                                                        129,
+                                                        125,
+                                                        234,
+                                                        .9,
+                                                      )));
+                                        }
+                                        if (navigationResult == 'from_appbar') {
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) =>
+                                                  const AlertDialog(
+                                                      title: Text(
+                                                          'BRO APPBAR WORKS, HYPE!'),
+                                                      titleTextStyle: TextStyle(
+                                                        fontStyle:
+                                                            FontStyle.normal,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        color: Colors.white,
+                                                        fontSize: 15,
+                                                      ),
+                                                      backgroundColor:
+                                                          Color.fromRGBO(
+                                                        129,
+                                                        125,
+                                                        234,
+                                                        .9,
+                                                      )));
+                                        }
+                                      },
+                                    ),
                                   ),
                                 ),
                               ],
