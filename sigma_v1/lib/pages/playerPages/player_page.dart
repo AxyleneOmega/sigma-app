@@ -4,9 +4,6 @@ import 'package:sigma_v1/main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sigma_v1/pages/playerPages/player_settings.dart';
-import 'package:sigma_v1/pages/goalsSubPages/tasks_page.dart';
-import 'package:sigma_v1/pages/goalsSubPages/routines_page.dart';
-import 'package:sigma_v1/pages/goalsSubPages/objectives_page.dart';
 
 class PlayerPage extends StatefulWidget {
   const PlayerPage({Key? key}) : super(key: key);
@@ -164,55 +161,49 @@ class _PlayerPageState extends State<PlayerPage> {
                                                 MaterialPageRoute(
                                                     builder: (content) =>
                                                         const PlayerSettings()));
-                                        if (navigationResult == 'from_back') {
-                                          showDialog(
-                                              context: context,
-                                              builder: (context) =>
-                                                  const AlertDialog(
-                                                      title: Text(
-                                                          'BRO BACK WORKS, HYPE!'),
-                                                      titleTextStyle: TextStyle(
-                                                        fontStyle:
-                                                            FontStyle.normal,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        color: Colors.white,
-                                                        fontSize: 15,
-                                                      ),
-                                                      backgroundColor:
-                                                          Color.fromRGBO(
-                                                        129,
-                                                        125,
-                                                        234,
-                                                        .9,
-                                                      )));
+                                        if (navigationResult ==
+                                            'settings_saved') {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(const SnackBar(
+                                                  duration:
+                                                      Duration(seconds: 1),
+                                                  backgroundColor:
+                                                      Color.fromRGBO(
+                                                          129, 125, 234, .8),
+                                                  content: Text(
+                                                    "Settings Saved",
+                                                    style: TextStyle(
+                                                      fontStyle:
+                                                          FontStyle.normal,
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      fontFamily: 'Montserrat',
+                                                      color: Colors.white,
+                                                      fontSize: 15,
+                                                    ),
+                                                  )));
                                         }
-                                        if (navigationResult == 'from_appbar') {
-                                          showDialog(
-                                              context: context,
-                                              builder: (context) =>
-                                                  const AlertDialog(
-                                                      title: Text(
-                                                          'BRO APPBAR WORKS, HYPE!'),
-                                                      titleTextStyle: TextStyle(
-                                                        fontStyle:
-                                                            FontStyle.normal,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        color: Colors.white,
-                                                        fontSize: 15,
-                                                      ),
-                                                      backgroundColor:
-                                                          Color.fromRGBO(
-                                                        129,
-                                                        125,
-                                                        234,
-                                                        .9,
-                                                      )));
+                                        if (navigationResult !=
+                                            'settings_saved') {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(const SnackBar(
+                                                  duration:
+                                                      Duration(seconds: 1),
+                                                  backgroundColor:
+                                                      Color.fromRGBO(
+                                                          129, 125, 234, .8),
+                                                  content: Text(
+                                                    "Settings Unchanged",
+                                                    style: TextStyle(
+                                                      fontStyle:
+                                                          FontStyle.normal,
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      fontFamily: 'Montserrat',
+                                                      color: Colors.white,
+                                                      fontSize: 15,
+                                                    ),
+                                                  )));
                                         }
                                       },
                                     ),

@@ -1,10 +1,12 @@
-import 'package:sigma_v1/navbar/tabbar_material_widget.dart';
+import 'package:sigma_v1/footer/tabbar_material_widget.dart';
 import 'package:sigma_v1/pages/about_page.dart';
 import 'package:sigma_v1/pages/goals_page.dart';
 import 'package:sigma_v1/pages/playerPages/player_page.dart';
 import 'package:sigma_v1/pages/rewards_page.dart';
-import 'package:sigma_v1/pages/schedule_page.dart';
+import 'package:sigma_v1/pages/schedule/schedule_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sigma_v1/theme/theme.dart';
 
 void main() => runApp(const MyApp());
 
@@ -39,16 +41,21 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
-        title: title,
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: 'Montserrat',
-          primarySwatch: MaterialColor(0xFF817DEA, sigmaPurple),
-          backgroundColor: MaterialColor(0x243242, sigmaNight),
-        ),
-        home: MainPage(title: title),
-      );
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+      create: (_) => ThemeNotifier(),
+      child: Consumer<ThemeNotifier>(
+          builder: (context, ThemeNotifier notifier, child) {
+        return MaterialApp(
+          title: title,
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            fontFamily: 'Montserrat',
+            primarySwatch: MaterialColor(0xFF817DEA, sigmaPurple),
+            backgroundColor: MaterialColor(0x243242, sigmaNight),
+          ),
+          home: MainPage(title: title),
+        );
+      }));
 }
 
 class MainPage extends StatefulWidget {

@@ -139,7 +139,7 @@ Map<int, Task> _taskMap = {
 class Server {
   static List<Task> getTaskList() => _taskMap.values.toList();
   static Task getTaskByIndex(int id) {
-    assert(id >= 0 && id <= 7);
+    assert(id >= 0 && id <= Server.getTaskList().length);
     return _taskMap[id]!;
   }
 }
@@ -170,19 +170,19 @@ class _Task extends State<Task> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-        height: MediaQuery.of(context).size.height * 0.15,
+        margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+        height: MediaQuery.of(context).size.height * 0.14,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: const Color.fromRGBO(10, 20, 30, 1),
           border: Border.all(
-            color: const Color.fromRGBO(129, 125, 234, .6),
+            color: const Color.fromRGBO(252, 221, 236, 1),
             width: 3.5,
           ),
         ),
         child: const Center(
-          child: Text("Tasks",
+          child: Text("Task",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: 'Montserrat',

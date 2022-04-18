@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sigma_v1/pages/playerPages/player_page.dart';
-import 'package:sigma_v1/navbar/settings_navbar_widget.dart';
+
+import '../../auth/login_page.dart';
 
 class PlayerSettings extends StatefulWidget {
   const PlayerSettings({Key? key}) : super(key: key);
@@ -10,6 +10,8 @@ class PlayerSettings extends StatefulWidget {
 }
 
 class _PlayerSettings extends State<PlayerSettings> {
+  var saveEnabled = true;
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -33,6 +35,7 @@ class _PlayerSettings extends State<PlayerSettings> {
                 )),
           ),
         ),
+        extendBody: true,
         body: Container(
           decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -58,7 +61,30 @@ class _PlayerSettings extends State<PlayerSettings> {
             child: Center(
               child: ElevatedButton(
                 onPressed: () async {
-                  //Login auth out here
+                  //Login auth - out herevar navigationResult =
+                  var navigationResult = await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (content) => const LoginPage()));
+                  if (navigationResult == true) {
+                    showDialog(
+                        context: context,
+                        builder: (context) => const AlertDialog(
+                            title: Text('Logged out. Hope to see you again!'),
+                            titleTextStyle: TextStyle(
+                              fontStyle: FontStyle.normal,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: 'Montserrat',
+                              color: Colors.white,
+                              fontSize: 15,
+                            ),
+                            backgroundColor: Color.fromRGBO(
+                              129,
+                              125,
+                              234,
+                              .9,
+                            )));
+                  }
                 },
                 style: ButtonStyle(
                   fixedSize: MaterialStateProperty.all(Size(
@@ -79,7 +105,20 @@ class _PlayerSettings extends State<PlayerSettings> {
             ),
           ),
         ),
-        //bottomNavigationBar: ,
+        persistentFooterButtons: [
+          ElevatedButton(
+            onPressed: saveEnabled
+                ? () async {
+                    _popNavWithResult(context, 'settings_saved');
+                  }
+                : null,
+            child: const Text('Save Settings',
+                style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w700,
+                )),
+          )
+        ],
       ),
     );
   }

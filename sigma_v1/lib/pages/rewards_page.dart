@@ -224,7 +224,7 @@ const Map<int, GameCard> _kDummyData = {
 class Server {
   static List<GameCard> getGameList() => _kDummyData.values.toList();
   static GameCard getGameCardByID(int id) {
-    assert(id >= 0 && id <= 3);
+    assert(id >= 0 && id <= Server.getGameList().length);
     return _kDummyData[id]!;
   }
 }
