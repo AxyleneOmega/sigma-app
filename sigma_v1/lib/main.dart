@@ -52,6 +52,7 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Montserrat',
             primarySwatch: MaterialColor(0xFF817DEA, sigmaPurple),
             backgroundColor: MaterialColor(0x243242, sigmaNight),
+            scaffoldBackgroundColor: MaterialColor(0xFF817DEA, sigmaPurple),
           ),
           home: MainPage(title: title),
         );

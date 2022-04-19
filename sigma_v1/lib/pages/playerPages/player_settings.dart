@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sigma_v1/main.dart';
 
 import '../../auth/login_page.dart';
 
@@ -106,17 +107,23 @@ class _PlayerSettings extends State<PlayerSettings> {
           ),
         ),
         persistentFooterButtons: [
-          ElevatedButton(
-            onPressed: saveEnabled
-                ? () async {
-                    _popNavWithResult(context, 'settings_saved');
-                  }
-                : null,
-            child: const Text('Save Settings',
-                style: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w700,
-                )),
+          Center(
+            child: ElevatedButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                const Color.fromRGBO(36, 50, 66, 1),
+              )),
+              onPressed: saveEnabled
+                  ? () async {
+                      _popNavWithResult(context, 'settings_saved');
+                    }
+                  : null,
+              child: const Text('Save Settings',
+                  style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w700,
+                  )),
+            ),
           )
         ],
       ),

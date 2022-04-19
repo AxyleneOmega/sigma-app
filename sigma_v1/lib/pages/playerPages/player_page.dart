@@ -371,30 +371,28 @@ class PlayerAttribute extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: const Color.fromRGBO(10, 20, 30, 1),
               ),
-              child: Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(40),
-                        color: attributeColor,
-                      ),
-                      height: MediaQuery.of(context).size.height * 0.075,
-                      width: MediaQuery.of(context).size.width *
-                          0.60 *
-                          percentCompletion *
-                          0.01,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      color: attributeColor,
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.075,
-                      width: MediaQuery.of(context).size.width *
-                          0.60 *
-                          (1 - (percentCompletion * 0.01)),
-                    ),
-                  ],
-                ),
+                    height: MediaQuery.of(context).size.height * 0.075,
+                    width: MediaQuery.of(context).size.width *
+                        0.60 *
+                        percentCompletion *
+                        0.01,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.075,
+                    width: MediaQuery.of(context).size.width *
+                        0.60 *
+                        (1 - (percentCompletion * 0.01)),
+                  ),
+                ],
               ),
             ),
             Container(
