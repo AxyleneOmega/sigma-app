@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.sigma_v1">
+    package="com.sigma.v1">
    <application
         android:label="sigma_v1"
         android:icon="@mipmap/ic_launcher">

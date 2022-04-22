@@ -32,7 +32,15 @@ ThemeData dark = ThemeData(
           color: const Color.fromRGBO(250, 250, 250, 1),
           fontSize: 22,
           fontWeight: FontWeight.bold),
-
+      labelSmall: GoogleFonts.montserrat(
+        color: const Color.fromARGB(255, 255, 255, 255),
+      ),
+      labelMedium: GoogleFonts.montserrat(
+        color: const Color.fromARGB(255, 255, 255, 255),
+      ),
+      labelLarge: GoogleFonts.montserrat(
+        color: const Color.fromARGB(255, 255, 255, 255),
+      ),
       // List Font
       bodyText1: GoogleFonts.montserrat(
           color: const Color.fromARGB(255, 255, 255, 255), fontSize: 16),

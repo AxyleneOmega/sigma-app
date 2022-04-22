@@ -1,4 +1,4 @@
-package com.example.sigma_v1
+package com.sigma.v1
 
 import io.flutter.embedding.android.FlutterActivity
 

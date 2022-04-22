@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sigma_v1/main.dart';
-
 import '../../auth/login_page.dart';
 
 class PlayerSettings extends StatefulWidget {

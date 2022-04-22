@@ -41,14 +41,15 @@ class _SchedulePageState extends State<SchedulePage> {
           body: SafeArea(
             child: Center(
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.8,
+                padding: const EdgeInsets.all(8),
+                height: MediaQuery.of(context).size.height * 0.7,
                 width: MediaQuery.of(context).size.width * 0.9,
                 margin: const EdgeInsets.fromLTRB(8, 8, 8, 0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: const Color.fromARGB(255, 181, 178, 255),
+                  color: const Color.fromRGBO(165, 165, 246, 1),
                   border: Border.all(
-                    color: const Color.fromRGBO(129, 125, 234, 1),
+                    color: Color.fromARGB(255, 0, 0, 0),
                     width: 3.5,
                   ),
                 ),
@@ -66,12 +67,12 @@ class _SchedulePageState extends State<SchedulePage> {
                   events: _events,
                   isExpandable: true,
                   eventDoneColor: Colors.green,
-                  selectedColor: Colors.pink,
-                  todayColor: Colors.blue,
+                  selectedColor: const Color.fromRGBO(241, 120, 182, 1),
+                  todayColor: const Color.fromARGB(255, 255, 255, 255),
                   eventColor: const Color.fromARGB(255, 255, 255, 255),
                   locale: 'en_IN',
                   todayButtonText: 'Jump to Today',
-                  bottomBarColor: const Color.fromRGBO(129, 125, 234, 1),
+                  bottomBarColor: const Color.fromARGB(255, 146, 143, 235),
                   bottomBarTextStyle: const TextStyle(
                       color: Colors.black,
                       fontFamily: 'Montserrat',
@@ -93,7 +94,7 @@ class _SchedulePageState extends State<SchedulePage> {
       );
   final Map<DateTime, List<CleanCalendarEvent>> _events = {
     DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day): [
-      CleanCalendarEvent('Review 2',
+      CleanCalendarEvent('Final',
           startTime: DateTime(DateTime.now().year, DateTime.now().month,
               DateTime.now().day, 19, 0),
           endTime: DateTime(DateTime.now().year, DateTime.now().month,
