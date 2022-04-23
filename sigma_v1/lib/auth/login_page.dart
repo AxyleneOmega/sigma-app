@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:sigma_v1/auth/auth.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key? key, required this.auth, required this.onLogin})
+      : super(key: key);
+  final BaseAuth auth;
+  final VoidCallback onLogin;
+
   @override
   State<StatefulWidget> createState() => _LoginPage();
 }
@@ -35,14 +40,16 @@ class _LoginPage extends State<LoginPage> {
     if (validateAndSave()) {
       try {
         if (_formType == FormType.login) {
-          UserCredential userCredential = await FirebaseAuth.instance
-              .signInWithEmailAndPassword(email: _email!, password: _password!);
-          print('Logged In As: ${userCredential.user!.email}');
+          String userID =
+              await widget.auth.signInWithEmailAndPassword(_email!, _password!);
+          print('Logged In As: $userID');
         } else {
+          String userID = await widget.auth
+              .createUserWithEmailAndPassword(_email!, _password!);
           UserCredential userCredential = await FirebaseAuth.instance
               .createUserWithEmailAndPassword(
                   email: _email!, password: _password!);
-          print('Signed Up: ${userCredential.user!.email}');
+          print('Signed Up: $userID');
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               duration: const Duration(seconds: 3),
               backgroundColor: const Color.fromRGBO(129, 125, 234, .8),
@@ -58,6 +65,7 @@ class _LoginPage extends State<LoginPage> {
                 ),
               )));
         }
+        widget.onLogin();
       } on FirebaseAuthException catch (e) {
         String errorMessage = e.message.toString();
         if (e.message.toString() ==

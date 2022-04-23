@@ -49,7 +49,7 @@ class _SchedulePageState extends State<SchedulePage> {
                   borderRadius: BorderRadius.circular(20),
                   color: const Color.fromRGBO(165, 165, 246, 1),
                   border: Border.all(
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    color: const Color.fromARGB(255, 0, 0, 0),
                     width: 3.5,
                   ),
                 ),

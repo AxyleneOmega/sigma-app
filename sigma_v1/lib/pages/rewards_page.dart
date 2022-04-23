@@ -189,34 +189,34 @@ class GameList extends StatelessWidget {
 const Map<int, GameCard> _kDummyData = {
   0: GameCard(
     id: 0,
-    imageId: ('assets/gameLogos/blockPongLogo.png'),
-    title: "Block Pong",
-    minCost: 10,
-    description: 'Classic game of Pong!',
+    imageId: ('assets/gameLogos/bounceBack.png'),
+    title: "Bounce Back",
+    minCost: 15,
+    description: 'Classic game of Block Pong!',
     bg: Color.fromRGBO(165, 166, 246, 1),
   ),
   1: GameCard(
     id: 1,
-    imageId: ('assets/gameLogos/tribalLogo.png'),
-    title: "Tribal Survivor",
-    minCost: 15,
-    description: 'Classic lane runner, with a twist.',
+    imageId: ('assets/gameLogos/tapThemAll.png'),
+    title: "Tap 'em All!",
+    minCost: 10,
+    description: 'Classic clicker game!',
     bg: Color.fromRGBO(252, 221, 236, 1),
   ),
   2: GameCard(
     id: 2,
-    imageId: ('assets/sl_night_bg.jpg'),
-    title: "Space Shooter",
-    minCost: 15,
-    description: 'Destroy all enemy ships!',
+    imageId: ('assets/gameLogos/catchThemAll.png'),
+    title: "Catch 'em All!",
+    minCost: 10,
+    description: 'Catch all the!',
     bg: Color.fromRGBO(153, 243, 195, 1),
   ),
   3: GameCard(
     id: 3,
-    imageId: ('assets/sl_night_bg.jpg'),
-    title: "Target Hunter",
+    imageId: ('assets/gameLogos/tribalLogo.png'),
+    title: "Tribal Survivor",
     minCost: 20,
-    description: 'How good is your aim? Test it here!',
+    description: 'Lane runner with a twist!',
     bg: Color.fromRGBO(241, 120, 182, 1),
   ),
 };
@@ -246,10 +246,10 @@ class GameCard {
   final Color bg;
 
   static const List<String> _games = <String>[
-    'Block Pong',
+    'Bounce Back',
+    'Tap \'em All!',
+    'Catch \'em All!',
     'Tribal Survivor',
-    'Space Shooter',
-    'Target Hunter',
   ];
 
   String getCard() {

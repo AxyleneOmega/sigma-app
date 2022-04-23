@@ -4,9 +4,13 @@ import 'package:sigma_v1/main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sigma_v1/pages/playerPages/player_settings.dart';
+import 'package:sigma_v1/auth/auth.dart';
 
 class PlayerPage extends StatefulWidget {
-  const PlayerPage({Key? key}) : super(key: key);
+  const PlayerPage({Key? key, required this.auth, required this.onLogout})
+      : super(key: key);
+  final BaseAuth auth;
+  final VoidCallback onLogout;
   @override
   _PlayerPageState createState() => _PlayerPageState();
 }
@@ -14,12 +18,22 @@ class PlayerPage extends StatefulWidget {
 class _PlayerPageState extends State<PlayerPage> {
   String _dateTimeNow =
       DateFormat('EEEEE - dd, MMMM, yyyy hh:mm:ss').format(DateTime.now());
-
+  String username = 'Username';
+  // ignore: prefer_typing_uninitialized_variables
+  dynamic logOut;
+  // ignore: prefer_typing_uninitialized_variables
+  var auth;
   @override
   void initState() {
     _dateTimeNow = _formatDateTime(DateTime.now());
     Timer.periodic(const Duration(seconds: 1), (Timer t) => _getTime());
+    auth = widget.auth;
     super.initState();
+    widget.auth.userEmail().then((userEmail) {
+      setState(() {
+        username = userEmail!;
+      });
+    });
   }
 
   void _getTime() {
@@ -119,15 +133,18 @@ class _PlayerPageState extends State<PlayerPage> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: <Widget>[
-                                            const Text(
-                                              "Username",
-                                              textAlign: TextAlign.left,
-                                              style: TextStyle(
-                                                fontStyle: FontStyle.normal,
-                                                fontWeight: FontWeight.w500,
-                                                fontFamily: 'Montserrat',
-                                                color: Colors.white,
-                                                fontSize: 20,
+                                            FittedBox(
+                                              fit: BoxFit.fitWidth,
+                                              child: Text(
+                                                username,
+                                                textAlign: TextAlign.left,
+                                                style: const TextStyle(
+                                                  fontStyle: FontStyle.normal,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontFamily: 'Montserrat',
+                                                  color: Colors.white,
+                                                  fontSize: 20,
+                                                ),
                                               ),
                                             ),
                                             Text(
@@ -160,7 +177,11 @@ class _PlayerPageState extends State<PlayerPage> {
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (content) =>
-                                                        const PlayerSettings()));
+                                                        PlayerSettings(
+                                                          auth: auth,
+                                                          onLogout:
+                                                              widget.onLogout,
+                                                        )));
                                         if (navigationResult ==
                                             'settings_saved') {
                                           ScaffoldMessenger.of(context)
@@ -183,8 +204,30 @@ class _PlayerPageState extends State<PlayerPage> {
                                                     ),
                                                   )));
                                         }
+                                        if (navigationResult == 'logout') {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(const SnackBar(
+                                                  duration:
+                                                      Duration(seconds: 1),
+                                                  backgroundColor:
+                                                      Color.fromRGBO(
+                                                          129, 125, 234, .8),
+                                                  content: Text(
+                                                    "Logging out...",
+                                                    style: TextStyle(
+                                                      fontStyle:
+                                                          FontStyle.normal,
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      fontFamily: 'Montserrat',
+                                                      color: Colors.white,
+                                                      fontSize: 15,
+                                                    ),
+                                                  )));
+                                        }
                                         if (navigationResult !=
-                                            'settings_saved') {
+                                                'settings_saved' &&
+                                            navigationResult != 'logout') {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(const SnackBar(
                                                   duration:

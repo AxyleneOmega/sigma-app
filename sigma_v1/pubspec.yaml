@@ -30,6 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   firebase_auth: 3.3.14
+  #flutter_unity_widget: ^2020.3.25
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

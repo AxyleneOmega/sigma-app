@@ -1,15 +1,34 @@
 import 'package:flutter/material.dart';
-import '../../auth/login_page.dart';
+import 'package:sigma_v1/auth/auth.dart';
 
 class PlayerSettings extends StatefulWidget {
-  const PlayerSettings({Key? key}) : super(key: key);
-
+  const PlayerSettings({Key? key, required this.auth, required this.onLogout})
+      : super(key: key);
+  final BaseAuth auth;
+  final VoidCallback onLogout;
   @override
   State<StatefulWidget> createState() => _PlayerSettings();
 }
 
 class _PlayerSettings extends State<PlayerSettings> {
   var saveEnabled = true;
+
+  // ignore: prefer_typing_uninitialized_variables
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void _logOut() async {
+    try {
+      widget.onLogout();
+      await widget.auth.logOut();
+      _popNavWithResult(context, 'logout');
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,32 +78,7 @@ class _PlayerSettings extends State<PlayerSettings> {
             ),
             child: Center(
               child: ElevatedButton(
-                onPressed: () async {
-                  //Login auth - out herevar navigationResult =
-                  var navigationResult = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (content) => const LoginPage()));
-                  if (navigationResult == true) {
-                    showDialog(
-                        context: context,
-                        builder: (context) => const AlertDialog(
-                            title: Text('Logged out. Hope to see you again!'),
-                            titleTextStyle: TextStyle(
-                              fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: 'Montserrat',
-                              color: Colors.white,
-                              fontSize: 15,
-                            ),
-                            backgroundColor: Color.fromRGBO(
-                              129,
-                              125,
-                              234,
-                              .9,
-                            )));
-                  }
-                },
+                onPressed: _logOut,
                 style: ButtonStyle(
                   fixedSize: MaterialStateProperty.all(Size(
                       MediaQuery.of(context).size.width * .25,
