@@ -44,11 +44,13 @@ class _LoginPage extends State<LoginPage> {
               await widget.auth.signInWithEmailAndPassword(_email!, _password!);
           print('Logged In As: $userID');
         } else {
-          String userID = await widget.auth
-              .createUserWithEmailAndPassword(_email!, _password!);
+          //String userID = await widget.auth
+          //.createUserWithEmailAndPassword(_email!, _password!);
           UserCredential userCredential = await FirebaseAuth.instance
               .createUserWithEmailAndPassword(
                   email: _email!, password: _password!);
+          String userID =
+              await widget.auth.signInWithEmailAndPassword(_email!, _password!);
           print('Signed Up: $userID');
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               duration: const Duration(seconds: 3),
@@ -67,19 +69,27 @@ class _LoginPage extends State<LoginPage> {
         }
         widget.onLogin();
       } on FirebaseAuthException catch (e) {
+        Duration messageDuration = const Duration(seconds: 3);
         String errorMessage = e.message.toString();
         if (e.message.toString() ==
             'There is no user record corresponding to this identifier. The user may have been deleted.') {
-          errorMessage = 'Account does not exist, Sign Up instead.';
+          errorMessage = 'Account does not exist yet, Sign Up instead.';
         }
         if (e.message.toString() ==
             'The email address is already in use by another account.') {
           errorMessage =
               'Account already exists with this email, Login instead.';
         }
+        if (e.message.toString() ==
+            'The user account has been disabled by an administrator.') {
+          errorMessage = 'Account has been disabled. Click here to know more.';
+          messageDuration = const Duration(seconds: 10);
+        }
+
         print('Error: $e');
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            duration: const Duration(seconds: 3),
+            //action: //todo: Add function that opens link to support website browser based on the error
+            duration: messageDuration,
             backgroundColor: const Color.fromRGBO(129, 125, 234, .8),
             content: Text(
               errorMessage,
@@ -242,7 +252,7 @@ class _LoginPage extends State<LoginPage> {
                   fontStyle: FontStyle.normal,
                   fontWeight: FontWeight.w500,
                   fontFamily: 'Montserrat',
-                  color: Color.fromRGBO(255, 100, 100, .5),
+                  color: Color.fromRGBO(234, 129, 125, .6),
                   fontSize: 15,
                 );
               } else {
@@ -298,7 +308,7 @@ class _LoginPage extends State<LoginPage> {
                 return const Color.fromRGBO(129, 125, 234, 1);
               }
               if (states.contains(MaterialState.error)) {
-                return const Color.fromRGBO(255, 100, 100, .5);
+                return const Color.fromRGBO(234, 129, 125, 1);
               }
               return Colors.white;
             }),
@@ -359,6 +369,16 @@ class _LoginPage extends State<LoginPage> {
       padding: const EdgeInsets.fromLTRB(25, 20, 25, 0),
       child: ElevatedButton(
         style: ButtonStyle(
+            backgroundColor:
+                MaterialStateColor.resolveWith((Set<MaterialState> states) {
+              if (_formType == FormType.signup) {
+                return const Color.fromRGBO(249, 106, 101, 1);
+              }
+              if (_formType == FormType.login) {
+                return const Color.fromRGBO(129, 125, 234, 1);
+              }
+              return Colors.white;
+            }),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -416,6 +436,16 @@ class _LoginPage extends State<LoginPage> {
             padding: const EdgeInsets.fromLTRB(8, 16, 8, 16),
             child: ElevatedButton(
               style: ButtonStyle(
+                  backgroundColor: MaterialStateColor.resolveWith(
+                      (Set<MaterialState> states) {
+                    if (_formType == FormType.signup) {
+                      return const Color.fromRGBO(129, 125, 234, 1);
+                    }
+                    if (_formType == FormType.login) {
+                      return const Color.fromRGBO(249, 106, 101, 1);
+                    }
+                    return Colors.white;
+                  }),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),

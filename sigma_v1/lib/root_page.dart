@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sigma_v1/auth/login_page.dart';
 import 'package:sigma_v1/auth/auth.dart';
 import 'package:sigma_v1/footer/tabbar_material_widget.dart';
-import 'package:sigma_v1/main.dart';
 import 'package:sigma_v1/pages/about_page.dart';
 import 'package:sigma_v1/pages/goals_page.dart';
 import 'package:sigma_v1/pages/playerPages/player_page.dart';

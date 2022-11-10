@@ -38,6 +38,19 @@ Map<int, Color> sigmaNight = {
   900: const Color.fromRGBO(36, 50, 66, 1),
 };
 
+Map<int, Color> sigmaWarm = {
+  50: const Color.fromRGBO(249, 106, 101, .1),
+  100: const Color.fromRGBO(249, 106, 101, .2),
+  200: const Color.fromRGBO(249, 106, 101, .3),
+  300: const Color.fromRGBO(249, 106, 101, .4),
+  400: const Color.fromRGBO(249, 106, 101, .5),
+  500: const Color.fromRGBO(249, 106, 101, .6),
+  600: const Color.fromRGBO(249, 106, 101, .7),
+  700: const Color.fromRGBO(249, 106, 101, .8),
+  800: const Color.fromRGBO(249, 106, 101, .9),
+  900: const Color.fromRGBO(249, 106, 101, 1),
+};
+
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
   final RootPage rootPage = RootPage(auth: Auth());

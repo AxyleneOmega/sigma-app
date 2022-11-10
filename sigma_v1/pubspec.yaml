@@ -29,11 +29,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  firebase_auth: 3.3.14
+  
   #flutter_unity_widget: ^2020.3.25
+
+  firebase_core: ^1.20.0
+  firebase_auth: ^3.3.14
+  cloud_firestore: ^3.1.5
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+  
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.0.0
   flutter_clean_calendar: ^1.1.0
@@ -71,6 +76,9 @@ flutter:
    - assets/sl_night_bg.jpg
    - assets/gameLogos/blockPongLogo.png
    - assets/gameLogos/tribalLogo.png
+   - assets/gameLogos/bounceBack.png
+   - assets/gameLogos/tapThemAll.png
+   - assets/gameLogos/catchThemAll.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

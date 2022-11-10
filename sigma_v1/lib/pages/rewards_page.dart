@@ -34,6 +34,7 @@ class RewardsPage extends StatelessWidget {
                   },
                   backgroundColor: const Color.fromRGBO(129, 125, 234, 1),
                   flexibleSpace: const FlexibleSpaceBar(
+                    centerTitle: true,
                     stretchModes: <StretchMode>[
                       StretchMode.zoomBackground,
                       StretchMode.fadeTitle,
